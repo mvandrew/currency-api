@@ -11,17 +11,20 @@ module.exports = {
     id: {
       type: "string",
       primaryKey: true,
-      required: true
+      required: true,
+      size: 10
     },
 
     numCode: {
       type: "string",
-      required: true
+      required: true,
+      size: 3
     },
 
     charCode: {
       type: "string",
-      required: true
+      required: true,
+      size: 3
     },
 
     nominal: {
