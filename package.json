@@ -1,6 +1,5 @@
 {
   "name": "currency-api",
-  "private": true,
   "version": "1.0.0",
   "description": "Currency exchange rates API based on NodeJS & SailsJS.",
   "keywords": [],
@@ -22,7 +21,8 @@
     "npm-check-updates": "^2.14.1",
     "rc": "1.2.5",
     "sails": "~0.12.14",
-    "sails-disk": "~0.10.9"
+    "sails-disk": "~0.10.9",
+    "sails-mysql": "^0.11.5"
   },
   "scripts": {
     "debug": "node debug app.js",
@@ -31,8 +31,13 @@
   "main": "app.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/mvandrew/currency-api"
+    "url": "git+https://github.com/mvandrew/currency-api.git"
   },
   "author": "Andrey Mishchenko",
-  "license": "MIT"
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mvandrew/currency-api/issues"
+  },
+  "homepage": "https://github.com/mvandrew/currency-api#readme",
+  "devDependencies": {}
 }
