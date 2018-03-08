@@ -9,18 +9,18 @@ module.exports = {
 
   attributes: {
     vendorId: {
-      type: "string",
+      type: 'string',
       size: 30
     },
 
     numCode: {
-      type: "string",
+      type: 'string',
       required: true,
       size: 3
     },
 
     charCode: {
-      type: "string",
+      type: 'string',
       required: true,
       size: 3,
       primaryKey: true,
@@ -28,20 +28,29 @@ module.exports = {
     },
 
     nominal: {
-      type: "float",
+      type: 'float',
       defaultsTo: 1,
       required: true
     },
 
     rate: {
-      type: "float",
+      type: 'float',
       defaultsTo: 1,
       required: true
     },
 
-    names: {
-      collection: 'CurrencyNames',
-      via: 'currency'
+    rateDate: {
+      type: 'date'
+    },
+
+    nameRu: {
+      type: 'string',
+      size: 30
+    },
+
+    nameEn: {
+      type: 'string',
+      size: 30
     }
   }
 

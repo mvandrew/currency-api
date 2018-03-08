@@ -60,7 +60,8 @@ CurrencyImportService.prototype.updateCurrency = function (currencyInfo) {
           if (row.nominal !== currencyInfo.Nominal || row.rate !== currencyInfo.Value) {
             Currency.update({charCode: currencyInfo.CharCode}, {
               nominal: currencyInfo.Nominal,
-              rate: currencyInfo.Value
+              rate: currencyInfo.Value,
+              rateDate: new Date()
             }).then(
               (row) => {
                 resolve(true);
@@ -82,7 +83,10 @@ CurrencyImportService.prototype.updateCurrency = function (currencyInfo) {
             vendorId: currencyInfo.Id,
             numCode: currencyInfo.NumCode,
             nominal: currencyInfo.Nominal,
-            rate: currencyInfo.Value
+            rate: currencyInfo.Value,
+            rateDate: new Date(),
+            nameRu: currencyInfo.Name,
+            nameEn: currencyInfo.NameEn
           }).then(
             (row) => {
               resolve(true);
@@ -105,12 +109,25 @@ CurrencyImportService.prototype.updateCurrency = function (currencyInfo) {
 CurrencyImportService.prototype.importRates = function () {
 
   return new Promise((resolve, reject) => {
-    this.getXMLData('ru').then(
-      (xmlData) => {
+
+    // Downloading CBR XML files
+    //
+    let cbrData = [];
+    cbrData.push(this.getXMLData('ru'));
+    cbrData.push(this.getXMLData('en'));
+
+
+    // Processing XML files
+    //
+    Promise.all(cbrData).then(
+      (xmlCollection) => {
+        const xmlData = xmlCollection[0];
+        const xmlDataEn = xmlCollection[1];
 
         // The array of exchange rates.
         //
         let arRates = xmlData.ValCurs.Valute;
+        let arRatesEn = xmlDataEn.ValCurs.Valute;
 
 
         // Bypassing exchange rates.
@@ -123,6 +140,11 @@ CurrencyImportService.prototype.importRates = function () {
           let sNumCode = val.NumCode[0];
           let sCharCode = val.CharCode[0];
           let sName = val.Name[0];
+
+          let sNameEn = val.Name[0];
+          for (let valEn of arRatesEn) {
+            if (valEn.CharCode[0] === sCharCode) { sNameEn = valEn.Name[0]; }
+          }
 
           let fNominal = parseFloat(val.Nominal[0].toString().replace(',', '.'));
           if (fNominal <= 0) {
@@ -142,6 +164,7 @@ CurrencyImportService.prototype.importRates = function () {
             NumCode: sNumCode,
             CharCode: sCharCode,
             Name: sName,
+            NameEn: sNameEn,
             Nominal: fNominal,
             Value: fValue
           };
