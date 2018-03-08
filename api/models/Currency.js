@@ -23,7 +23,8 @@ module.exports = {
       type: "string",
       required: true,
       size: 3,
-      primaryKey: true
+      primaryKey: true,
+      unique: true
     },
 
     nominal: {
@@ -36,6 +37,11 @@ module.exports = {
       type: "float",
       defaultsTo: 1,
       required: true
+    },
+
+    names: {
+      collection: 'CurrencyNames',
+      via: 'currency'
     }
   }
 
