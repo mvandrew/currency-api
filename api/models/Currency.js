@@ -45,12 +45,12 @@ module.exports = {
 
     nameRu: {
       type: 'string',
-      size: 30
+      size: 50
     },
 
     nameEn: {
       type: 'string',
-      size: 30
+      size: 50
     }
   }
 
