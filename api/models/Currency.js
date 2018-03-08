@@ -8,11 +8,9 @@
 module.exports = {
 
   attributes: {
-    id: {
+    vendorId: {
       type: "string",
-      primaryKey: true,
-      required: true,
-      size: 10
+      size: 30
     },
 
     numCode: {
@@ -24,10 +22,17 @@ module.exports = {
     charCode: {
       type: "string",
       required: true,
-      size: 3
+      size: 3,
+      primaryKey: true
     },
 
     nominal: {
+      type: "float",
+      defaultsTo: 1,
+      required: true
+    },
+
+    rate: {
       type: "float",
       defaultsTo: 1,
       required: true
