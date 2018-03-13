@@ -1,13 +1,19 @@
 const dateFormat = require('dateformat');
 
 /**
- * CurrencyController
- *
- * @description :: Server-side logic for managing currencies
- * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
+ * @module CurrencyController
+ * @description Server-side logic for managing currencies
+ * @since 1.0.0
+ * @author Andrey Mishchenko
  */
-
 module.exports = {
+  /**
+   * Cur List
+   *
+   * @param req
+   * @param res
+   * @param next
+   */
   index: (req, res, next) => {
     Currency.find().then(
       (currencyList) => {
@@ -41,3 +47,10 @@ module.exports = {
   }
 };
 
+/**
+ * @api {get} /currency Returns the currency list with exchange rates.
+ * @apiName getCurrencyRates
+ * @apiGroup Currency
+ * @apiVersion 1.0.0
+ * @apiDescription Returns the currency list with exchange rates. Each exchange rate is accompanied by a value update date.
+ */

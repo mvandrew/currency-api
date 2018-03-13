@@ -3,6 +3,11 @@
 
 Currency exchange rates API based on [NodeJS](https://nodejs.org) & [SailsJS framework](http://sailsjs.org).
 
+## Documentation
+The project provides two types of documentation: API and App Structure.
+
+Both types of documentation are generated automatically by Grunt tasks.
+
 ## Проблемы и Ошибки
 ### Решение: ENOENT: no such file or directory
 

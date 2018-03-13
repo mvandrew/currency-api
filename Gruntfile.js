@@ -63,6 +63,26 @@ module.exports = function(grunt) {
   }
 
 
+  grunt.initConfig({
+    jsdoc : {
+      dist : {
+        src: ['api/**/*.js'],
+        options: {
+          destination: 'assets/doc'
+        }
+      }
+    },
+    apidoc: {
+      currencyapi: {
+        src: "api/controllers",
+        dest: "assets/apidoc/"
+      }
+    }
+  });
+
+  grunt.loadNpmTasks('grunt-jsdoc');
+  grunt.loadNpmTasks('grunt-apidoc');
+
 
   // Load task functions
   var taskConfigurations = loadTasks('./tasks/config'),

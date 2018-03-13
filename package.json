@@ -21,10 +21,10 @@
     "iconv": "^2.3.0",
     "include-all": "^4.0.3",
     "npm-check-updates": "^2.14.1",
-    "rc": "1.2.5",
-    "request": "^2.83.0",
+    "rc": "1.2.6",
+    "request": "^2.85.0",
     "sails": "~0.12.14",
-    "sails-disk": "~0.10.9",
+    "sails-disk": "~0.10.10",
     "sails-mysql": "^0.11.5",
     "xml2js": "^0.4.19"
   },
@@ -43,5 +43,8 @@
     "url": "https://github.com/mvandrew/currency-api/issues"
   },
   "homepage": "https://github.com/mvandrew/currency-api#readme",
-  "devDependencies": {}
+  "devDependencies": {
+    "grunt-apidoc": "^0.11.0",
+    "grunt-jsdoc": "^2.2.1"
+  }
 }
