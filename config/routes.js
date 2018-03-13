@@ -32,9 +32,7 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  '/': {
-    view: 'homepage'
-  },
+  '/': { view: 'index' },
 
   /***************************************************************************
   *                                                                          *
@@ -46,6 +44,10 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  '/currency': 'CurrencyController.index'
+  '/currency': 'CurrencyController.index',
+
+  'post /login': 'AuthController.login',
+
+  '/console': 'ConsoleController.index'
 
 };
