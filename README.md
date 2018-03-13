@@ -8,6 +8,10 @@ The project provides two types of documentation: API and App Structure.
 
 Both types of documentation are generated automatically by Grunt tasks.
 
+### See docs annotations
+* [APIDOC - Documentation for RESTful web APIs](http://apidocjs.com/)
+* [JSDoc](http://usejsdoc.org/)
+
 ## Проблемы и Ошибки
 ### Решение: ENOENT: no such file or directory
 
